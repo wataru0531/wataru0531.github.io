@@ -1,0 +1,60 @@
+//mapの形式でキー情報と値を作る。この$patternの中の変数をループさせる。
+//修正箇所がわかりやすくなるメリットがある。
+$pattern: (
+    "up": translateY(6px),
+    "down": translateY(-6px),
+    "left": translateX(40px),
+    "right": translateX(-40px),
+);
+
+//動かしたい部分だけ抜く
+//#{}　インターアポレーション。変数をセレクタ内で使用するときに使う。
+//値を記述する際には#{}はいらない。
+@each $key, $value in $pattern{
+    .appear.#{$key}{
+        & .item{
+            transform: $value;
+        }
+    }
+}
+
+//動かす必要のない部分はそのまま
+.appear{ //親要素に.appearと$patternのup,down,left,rightのうちどれかをつける。
+    & .item{ //子要素に.item　＊.appearの内側の要素であれば問題なく動く
+        transition: all .8s;
+        opacity: 0;
+        //ここに@each文が入りループ処理が起こる。
+    }
+    &.inview{ //inviewがついたタイミングでフェイドインアニメーションが開始。
+        & .item{
+            opacity: 1;
+            transform: none;
+
+            @for $i from 1 through 10{
+                &:nth-child(#{$i}){
+                    transition-delay: $i * 0.1s;
+                }
+            }
+        }
+    }
+}
+
+// .appear.up{
+//     & .item{
+//         opacity: 0;
+//         transform: translateY(6px);
+//         transition: all .8s;
+//     }
+//     &.inview{
+//         & .item{
+//             opacity: 1;
+//             transform: none;
+
+//             @for $i from 1 through 10{
+//                 &:nth-child(#{$i}){
+//                     transition-delay: $i * 0.1s;
+//                 }
+//             }
+//         }
+//     }
+// }

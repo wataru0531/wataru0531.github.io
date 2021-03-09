@@ -1,0 +1,897 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+}
+img{
+    max-width: 100%; //画像自体が100%以上大きさにならない。
+    vertical-align: bottom;
+}
+//フォントサイズのユーティリティ
+.font-sm{
+    font-size: 12px;
+}
+.font-md{
+    font-size: 14px;
+}
+.font-lr{
+    font-size: 22px;
+}
+.font-lg{
+    font-size: 25px;
+}
+
+.flex{ //.flexを切り出しておくことで600px以上でも継承させることができる
+    display: flex;
+    flex-direction: column;
+}
+
+//左右の余白を調整
+.content-width{
+    width: 90%;
+    margin: 0 auto;
+    max-width: $contentMaxWidth;
+}
+
+/******************************************************************
+header
+******************************************************************/
+.header{
+    width: 100%;
+    height: 94px;
+    background-color: $cWhite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+
+    &.triggered{
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+    }
+
+    &__inner{
+        @extend .content-width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .logo{
+            display: flex;
+            align-items: center;
+
+            &__img{
+                display: block;
+            }
+            & h1{
+                @extend .font-lg;
+                color: $cDark;
+                line-height: 1.2;
+                margin: 0;
+                margin-left: 16px;
+            }
+        }
+    }
+
+    &__nav{
+        display: none;
+    }
+
+    &__ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__li{
+        display: inline-block;
+        &:not(first-child){
+            margin-left: 46px;
+        }
+    }
+
+    &__link{
+        @extend .font-sm;
+        line-height: 1.19;
+        color: $cDark;
+        text-decoration: none !important;
+        transition: color .3s;
+
+        &:hover{
+            color: $cSkyBlue;
+        }
+    }
+
+    &__btn{
+        display: none;
+
+        & .btn{
+            @extend .font-md;
+            line-height: 1.21;
+            color: $cWhite;
+            padding: 10px 35px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: linear-gradient(to right, #EB3EC9, #6020B0);
+            transition: opacity .3s;
+
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
+}
+
+.mobile-menu{
+    &__cover{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 80px 15px;
+        text-align: center;
+        background-color: $cSkyBlue;
+        transform: translateX(-100%);
+        transition: transform .3s;
+
+        & .logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+
+            &__img{
+                display: block;
+            }
+            & h2{
+                @extend .font-lg;
+                color: $cWhite;
+                line-height: 1.2;
+                margin: 0;
+                margin-left: 16px;
+            }
+        }
+    }
+    &__ul{
+        padding: 0;
+        margin: 0;
+    }
+    &__li:not(last-child){
+        list-style: none;
+        margin-bottom: 20px;
+    }
+    &__link{
+        @extend .font-lr;
+        color: $cWhite;
+        text-decoration: none !important;
+    }
+
+    &__btn{
+        background-color: unset;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 500;
+
+        & > span{
+            width: 35px;
+            height: 2px;
+            background-color: $cSkyBlue;
+            display: block;
+            margin-bottom: 9px;
+            transition: transform .3s;
+            
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.menu-open{
+    & .mobile-menu{
+        &__cover{
+            transform: none;
+        }
+    
+        &__btn{
+            & > span{
+                background-color: $cWhite;
+
+                &:nth-child(1){
+                    transition-delay: 70ms;
+                    transform: translateY(11px) rotate(135deg);
+                }
+                &:nth-child(2){
+                    transition-delay: 0s;
+                    transform: translateX(-18px) scaleX(0);
+                }
+                &:nth-child(3){
+                    transition-delay: 140ms;
+                    transform: translateY(-11px) rotate(-135deg);
+                }
+            }
+        }
+    }
+}
+
+/******************************************************************
+.content
+******************************************************************/
+.content{
+    padding-top: 94px;
+}
+/******************************************************************
+.hero
+******************************************************************/
+.hero{
+    padding-top: 80px;
+    padding-bottom: 130px;
+
+    background-image: url(../../images/circle.png);
+    background-repeat: no-repeat;
+    background-position: top -250px right -100px;
+    background-size: 800px 800px;
+    
+    &__inner{
+        @extend .content-width;
+        @extend .flex;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    &__texts-lg{
+        margin-top: 40px;
+        @extend .font-lg;
+        color: $cDark;
+        line-height: 1.19;
+    }
+    &__texts-md{
+        margin-top: 20px;
+        @extend .font-md;
+        color: $cDark;
+        line-height: 1.19;
+    }
+    &__btn{
+        & .btn{
+            margin-top: 20px;
+            @extend .font-sm;
+            line-height: 1.21;
+            color: $cWhite;
+            padding: 10px 35px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #EB3EC9, #6020B0);
+        }
+    }
+    &__img{
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+/******************************************************************
+.main-content
+******************************************************************/
+/******************************************************************
+.features
+******************************************************************/
+.features{
+    padding: 30px 0 100px;
+    @extend .content-width;
+    
+    &__header{
+        text-align: center;
+
+        & h2{
+            @extend .font-lg;
+            color: $cDark;
+            line-height: 1.19;
+            margin: 0;
+        }
+        & .sub-title{
+            @extend .font-md;
+            line-height: 1.19;
+            color: $cSkyBlue;
+            margin-top: 19px;
+        }
+    }
+}
+
+/******************************************************************
+.high-speed
+******************************************************************/
+.high-speed{
+    margin-top: 50px;
+
+    &__header{
+        & h3{
+            font-size: 22px;
+            color: $cDark;
+            line-height: 1.21;
+            margin: 0;
+            text-align: center;
+        }
+    }
+    &__inner{
+        margin-top: 30px;
+        @extend .flex;
+    }
+    &__img{
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__texts{
+        text-align: center;
+        margin-top: 40px;
+
+        & .texts-lr{
+            @extend .font-lr;
+            color: $cDark;
+            line-height: 2;
+        }
+        & .texts-md{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.62;
+            margin-top: 20px;
+        }
+    }
+}
+
+/******************************************************************
+.high-quolity
+******************************************************************/
+.high-quolity{
+    margin-top: 50px;
+
+    &__header{
+
+        & h3{
+            font-size: 22px;
+            color: $cDark;
+            line-height: 1.21;
+            margin: 0;
+            text-align: center;
+        }
+    }
+    &__inner{
+        margin-top: 30px;
+        @extend .flex;
+    }
+    &__img{
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__texts{
+        text-align: center;
+        margin-top: 40px;
+
+        & .texts-lr{
+            @extend .font-lr;
+            color: $cDark;
+            line-height: 2;
+        }
+        & .texts-md{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.62;
+            margin-top: 20px;
+        }
+    }
+}
+
+/******************************************************************
+.quick-response
+******************************************************************/
+.quick-response{
+    margin-top: 50px;
+
+    &__header{
+        & h3{
+            font-size: 22px;
+            color: $cDark;
+            line-height: 1.21;
+            margin: 0;
+            text-align: center;
+        }
+    }
+    &__inner{
+        margin-top: 30px;
+        @extend .flex;
+    }
+    &__img{
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__texts{
+        text-align: center;
+        margin-top: 40px;
+
+        & .texts-lr{
+            @extend .font-lr;
+            color: $cDark;
+            line-height: 2;
+        }
+        & .texts-md{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.62;
+            margin-top: 20px;
+        }
+    }
+}
+
+/******************************************************************
+.price
+******************************************************************/
+.price{
+    background-color: $cBgLightBlue;
+    padding: 64px 0 71px;
+
+    &__inner{
+        @extend .content-width;
+    }
+    &__header{
+        text-align: center;
+
+        & h2{
+            @extend .font-lg;
+            color: $cDark;
+            line-height: 0.87;
+        }
+        & .sub-title{
+            margin-top: 23px;
+            @extend .font-md;
+            line-height: 1.18;
+            color: $cSkyBlue;
+        }
+    }
+    &__table{
+        width: 90%;
+        background-color: $cWhite;
+        margin: 0 auto;
+        margin-top: 50px;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+        
+        &-head{
+            @extend .font-md;
+            line-height: 1.18;
+            width: 30%;
+            color: $cDark;
+            padding: 20px 10px;
+            border: solid 1px $cBorderGray;
+            text-align: left;
+        }
+        &-body{
+            @extend .font-md;
+            line-height: 1.18;
+            width: 70%;
+            color: $cDark;
+            padding: 20px 10px;
+            border: solid 1px $cBorderGray;
+        }
+
+    }
+    &__caution{
+        @extend .font-md;
+        color: $cDark;
+        line-height: 1.63;
+        text-align: center;
+        margin: 41px 0 0;
+    }
+}
+
+/******************************************************************
+.f-and-q
+******************************************************************/
+.f-and-q{
+    @extend .content-width;
+    padding: 64px 0 86px;
+
+    &__header{
+        text-align: center;
+        
+        & h2{
+            @extend .font-lg;
+            color: $cDark;
+            line-height: 0.87;
+        }
+        & .sub-title{
+            margin-top: 23px;
+            @extend .font-md;
+            line-height: 1.18;
+            color: $cSkyBlue;
+        }
+    }
+}
+
+.accordion{
+    width: 90%;
+    margin: 33px auto 0;
+    
+    &__trigger{
+        @extend .font-sm;
+        color: $cDark;
+        padding: 18px;
+        text-align: center;
+        border: 1px solid $cBorderGray;
+        cursor: pointer;
+        user-select: none;
+    }
+    &__content{
+        @extend .font-sm;
+        color: $cDark;
+        margin: 0;
+        text-align: left;
+        background-color: $cAccordionContentBg;
+        overflow: hidden;
+        padding: 0 18px;
+        height: 0;
+        line-height: 0;
+        opacity: 0;
+        transition: all .3s;
+
+        &.is-open{
+            border: 1px solid $cBorderGray;
+            padding: 18px;
+            height: auto;
+            line-height: normal;
+            opacity: 1;
+        }
+    }
+}
+
+/******************************************************************
+.blog
+******************************************************************/
+.blog{
+    padding: 64px 0 91px;
+    background-color: $cBgLightBlue;
+
+    &__inner{
+        width: 90%;
+        max-width: $cBlogMaxWidth;
+        margin: 0 auto;
+    }
+    &__header{
+        text-align: center;
+
+        & h2{
+            @extend .font-lg;
+            color: $cDark;
+            line-height: 0.87;
+        }
+        & .sub-title{
+            margin-top: 23px;
+            @extend .font-md;
+            line-height: 1.18;
+            color: $cSkyBlue;
+        }
+    }
+    
+    &__cards{
+        margin-top: 55px;
+        @extend .flex;
+
+        & .card02{
+            margin-top: 50px;
+        }
+        & .card03{
+            margin-top: 50px;
+        }
+    }
+
+    &__card{
+        background-color: $cWhite;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+
+        & .img-box{
+            position: relative;
+            padding-top: 56.25%;
+            margin: 0;
+            overflow: hidden;
+
+            & > img{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        & .card-body{
+            height: 127px;
+            padding: 15px;
+
+            &-inner{
+                @extend .font-md;
+                color: $cDark;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                & .datetime{
+                    text-align: right;
+                }
+            }
+        }
+
+    }
+}
+
+/******************************************************************
+.works
+******************************************************************/
+.works{
+    padding: 64px 0 90px;
+
+    &__header{
+        text-align: center;
+
+        & h2{
+            @extend .font-lg;
+            color: $cDark;
+            line-height: 0.87;
+            color: $cDark;
+        }
+        & .sub-title{
+            margin-top: 23px;
+            @extend .font-md;
+            line-height: 1.18;
+            color: $cSkyBlue;
+        }
+    }
+}
+//スワイパー
+.swiper-container{
+    margin-top: 69px;
+    width: 100%;
+}
+.swiper-slide{
+    border: 1px solid #DDDDDD;
+    border-radius: 9px;
+    overflow: hidden;
+
+    &__img{
+        position: relative;
+        padding-top: 56.25%;
+        margin: 0;
+
+        & .img{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__subscription{
+        padding: 24px 17px 34px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        & .caption{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.18;
+        }
+    }
+    &__ul{
+        margin: 20px 0 0;
+        padding: 0;
+        
+    }
+    &__li{
+        @extend .font-sm;
+        line-height: 1.21;
+        list-style: none;
+
+        &:not(first-child){
+            margin-top: 10px;
+        }
+    }
+}
+
+/******************************************************************
+.contact
+******************************************************************/
+.contact{
+    padding: 70px 0 70px;
+    background: linear-gradient(to right, $cContactLeft, $cContactRight);
+
+    &__inner{
+        @extend .content-width;
+
+        & .your-power{
+            margin-top: 42px;
+            @extend .font-md;
+            line-height: 1.19;
+            color: $cWhite;
+            text-align: center;
+        }
+    }
+    &__header{
+        color: $cWhite;
+        text-align: center;
+
+        & h2{
+            @extend .font-lg;
+            line-height: 0.87;
+        }
+        & .sub-title{
+            margin-top: 19px;
+            @extend .font-md;
+            line-height: 1.19;
+        }
+    }
+    &__form{
+        margin-top: 44px;
+        padding: 39px 63px 35px;
+        background-color: $cWhite;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+
+        & .label{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.6;
+            margin: 0;
+        }
+        & .required{
+            display: inline-block;
+            margin-left: 23px;
+            padding: 8px 16px;
+            color: $cWhite;
+            background-color: $cRequiredBg;
+            border-radius: 10px;
+            line-height: 1.85;
+        }
+        & .notice{
+            margin: 0;
+            color: red;
+            display: none;
+        }
+        & .name{
+            & .your-name{
+                margin-top: 42px;
+                width: 100%;
+                height: 43px;
+                background-color: #EEFBFB;
+                border: none;
+                border-radius: 3px;
+            }
+        }
+        & .email{
+            margin-top: 25px;
+
+            & .your-email{
+                margin-top: 42px;
+                width: 100%;
+                height: 43px;
+                background-color: #EEFBFB;
+                border: none;
+                border-radius: 3px;
+            }
+        }
+        & .inquiry{
+            margin-top: 25px;
+
+            & .your-inquiry{
+                margin-top: 42px;
+                width: 100%;
+                height: 179px;
+                background-color: #EEFBFB;
+                border: none;
+                border-radius: 3px;
+            }
+        }
+        & .check{
+            margin-top: 32px;
+            text-align: center;
+
+            & .your-check{
+                margin-right: 10px;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #707070;
+                vertical-align: bottom;
+            }
+        }
+        & .submit{
+            margin-top: 33px;
+            text-align: center;
+
+            & .btn{
+                @extend .font-sm;
+                line-height: 1.2;
+                padding: 12px 50px;
+                color: $cWhite;
+                background: linear-gradient(to right, #FA41CC, #6020B0);
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+                transition: opacity .3s;
+
+                &:hover{
+                    opacity: .8;
+                }
+            }
+        }
+        & .end-message{
+            display: none;
+            text-align: center;
+            line-height: 1.6;
+            color: $cDark;
+
+
+        }
+        & .false-message{
+            display: none;
+            text-align: center;
+            line-height: 1.6;
+            color: red;
+        }
+    }
+}
+
+/******************************************************************
+.footer
+******************************************************************/
+.footer{
+    @extend .content-width;
+    padding: 50px 0;
+
+    & h2{
+        @extend .font-lr;
+        color: $cDark;
+        line-height: 1.16;
+        text-align: center;
+    }
+    &__texts{
+        margin-top: 30px;
+        text-align: center;
+
+        & .privacy{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.75;
+        }
+        & .private-commerce{
+            @extend .font-md;
+            color: $cDark;
+            line-height: 1.75;
+        }
+    }
+    & p{
+        @extend .font-sm;
+        color: $cDark;
+        line-height: 1.21;
+        margin-top: 59px;
+        text-align: center;
+    }
+}

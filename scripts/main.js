@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function(){
             e.preventDefault(); 
 
             let href = smoothScrollTrigger[i].getAttribute('href'); 
-            let targetElement = document.getElementById(href.replace('#', '')); x
+            let targetElement = document.getElementById(href.replace('#', ''));
 
             const rect = targetElement.getBoundingClientRect().top;
             const offset = window.pageYOffset;
             const headerHeight = 94;
-            const target = rect + offset - headerHeight;//
+            const target = rect + offset - headerHeight;
 
             window.scrollTo({
                 top: target,

@@ -397,6 +397,11 @@ header
   border: none;
   background: -webkit-gradient(linear, left top, right top, from(#EB3EC9), to(#6020B0));
   background: linear-gradient(to right, #EB3EC9, #6020B0);
+  outline: none;
+}
+
+.hero__btn .btn:hover {
+  opacity: .8;
 }
 
 .hero__img > img {

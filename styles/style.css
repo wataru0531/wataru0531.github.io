@@ -292,6 +292,12 @@ header
 .mobile-menu__link {
   color: #FFFFFF;
   text-decoration: none !important;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.mobile-menu__link:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .mobile-menu__btn {

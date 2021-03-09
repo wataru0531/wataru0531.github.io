@@ -4,26 +4,26 @@ document.addEventListener('DOMContentLoaded', function(){
     const main = new Main();
     
     // スムーススクロール
-    const smoothScrollTrigger = document.querySelectorAll('a[href^="#"]');
+    // const smoothScrollTrigger = document.querySelectorAll('a[href^="#"]');
 
-    for(let i = 0; i < smoothScrollTrigger.length; i++){
-        smoothScrollTrigger[i].addEventListener('click', function(e){
-            e.preventDefault(); 
+    // for(let i = 0; i < smoothScrollTrigger.length; i++){
+    //     smoothScrollTrigger[i].addEventListener('click', function(e){
+    //         e.preventDefault(); 
 
-            let href = smoothScrollTrigger[i].getAttribute('href'); 
-            let targetElement = document.getElementById(href.replace('#', ''));
+    //         let href = smoothScrollTrigger[i].getAttribute('href'); 
+    //         let targetElement = document.getElementById(href.replace('#', ''));
 
-            const rect = targetElement.getBoundingClientRect().top;
-            const offset = window.pageYOffset;
-            const headerHeight = 94;
-            const target = rect + offset - headerHeight;
+    //         const rect = targetElement.getBoundingClientRect().top;
+    //         const offset = window.pageYOffset;
+    //         const headerHeight = 94;
+    //         const target = rect + offset - headerHeight;
 
-            window.scrollTo({
-                top: target,
-                behavior: 'smooth',
-            });
-        });
-    }
+    //         window.scrollTo({
+    //             top: target,
+    //             behavior: 'smooth',
+    //         });
+    //     });
+    // }
 
 });
 
@@ -42,6 +42,7 @@ class Main{
     }
 
     _init(){
+        new Smooth();
         new MobileMenu();
         new Accordion();
         this.hero = new HeroSlider('.swiper-container');

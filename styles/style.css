@@ -389,13 +389,13 @@ header
 }
 
 .hero__texts-md {
-  margin-top: 20px;
+  margin-top: 25px;
   color: #333333;
   line-height: 1.5;
 }
 
 .hero__btn .btn {
-  margin-top: 15px;
+  margin-top: 25px;
   line-height: 1.21;
   color: #FFFFFF;
   padding: 10px 35px;
@@ -1088,7 +1088,7 @@ Stylesheet: 768px以上のタブレットやモニタで適用
     margin-top: 20px;
   }
   .hero__btn {
-    margin-top: 25px;
+    margin-top: 20px;
   }
   .hero__img {
     -ms-flex-preferred-size: 50%;
@@ -1313,7 +1313,7 @@ header
     margin-top: 38px;
   }
   .hero__btn {
-    margin-top: 30px;
+    margin-top: 25px;
   }
   .hero__img {
     -ms-flex-preferred-size: 50%;

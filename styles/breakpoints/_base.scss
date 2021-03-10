@@ -261,14 +261,14 @@ header
         line-height: 2;
     }
     &__texts-md{
-        margin-top: 20px;
+        margin-top: 25px;
         @extend .font-md;
         color: $cDark;
         line-height: 1.5;
     }
     &__btn{
         & .btn{
-            margin-top: 15px;
+            margin-top: 25px;
             @extend .font-sm;
             line-height: 1.21;
             color: $cWhite;

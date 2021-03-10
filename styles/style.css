@@ -96,7 +96,7 @@ img {
   vertical-align: bottom;
 }
 
-.font-sm, .header__link, .hero__btn .btn, .accordion__trigger, .accordion__content, .swiper-slide__li, .contact__form .submit .btn, .footer p {
+.font-sm, .header__link, .hero__btn .btn, .accordion__trigger, .accordion__content, .swiper-slide__li, .contact__form .required, .contact__form .submit .btn, .footer p {
   font-size: 12px;
 }
 
@@ -108,7 +108,7 @@ img {
   font-size: 22px;
 }
 
-.font-lg, .header__inner .logo h1, .mobile-menu__cover .logo h2, .hero__texts-lg, .features__header h2, .price__header h2, .f-and-q__header h2, .blog__header h2, .works__header h2, .contact__header h2 {
+.font-lg, .header__inner .logo h1, .mobile-menu__cover .logo h2, .hero__texts-lg, .price__header h2, .f-and-q__header h2, .blog__header h2, .works__header h2, .contact__header h2 {
   font-size: 25px;
 }
 
@@ -385,13 +385,13 @@ header
 .hero__texts-lg {
   margin-top: 40px;
   color: #333333;
-  line-height: 1.19;
+  line-height: 2;
 }
 
 .hero__texts-md {
   margin-top: 20px;
   color: #333333;
-  line-height: 1.19;
+  line-height: 1.5;
 }
 
 .hero__btn .btn {
@@ -432,6 +432,7 @@ header
 }
 
 .features__header h2 {
+  font-size: 24px;
   color: #333333;
   line-height: 1.19;
   margin: 0;
@@ -891,7 +892,7 @@ header
 
 .contact__form {
   margin-top: 44px;
-  padding: 39px 63px 35px;
+  padding: 39px 25px 35px;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -906,11 +907,10 @@ header
 .contact__form .required {
   display: inline-block;
   margin-left: 23px;
-  padding: 8px 16px;
+  padding: 3px 16px;
   color: #FFFFFF;
   background-color: #0C449B;
   border-radius: 10px;
-  line-height: 1.85;
 }
 
 .contact__form .notice {
@@ -922,6 +922,7 @@ header
 .contact__form .name .your-name {
   margin-top: 42px;
   width: 100%;
+  max-width: 400px;
   height: 43px;
   background-color: #EEFBFB;
   border: none;
@@ -935,6 +936,7 @@ header
 .contact__form .email .your-email {
   margin-top: 42px;
   width: 100%;
+  max-width: 400px;
   height: 43px;
   background-color: #EEFBFB;
   border: none;
@@ -1102,6 +1104,9 @@ Stylesheet: 768px以上のタブレットやモニタで適用
   .features {
     padding: 70px 0 100px;
   }
+  .features__header h2 {
+    font-size: 25px;
+  }
   /******************************************************************
 .high-speed
 ******************************************************************/
@@ -1227,6 +1232,9 @@ Stylesheet: 768px以上のタブレットやモニタで適用
   /******************************************************************
 .contact
 ******************************************************************/
+  .contact__form {
+    padding: 39px 40px 35px;
+  }
   .contact__form .name .your-name {
     width: 55%;
   }
@@ -1258,7 +1266,7 @@ Stylesheet: 768px以上のタブレットやモニタで適用
 Stylesheet: 960px以上のモニタで適用
 
 ******************************************************************/
-  .font-sm, .header__link, .hero__btn .btn, .accordion__trigger, .accordion__content, .swiper-slide__li, .contact__form .submit .btn, .footer p {
+  .font-sm, .header__link, .hero__btn .btn, .accordion__trigger, .accordion__content, .swiper-slide__li, .contact__form .required, .contact__form .submit .btn, .footer p {
     font-size: 14px;
   }
   .font-md, .header__btn .btn, .hero__texts-md, .features__header .sub-title, .high-speed__texts .texts-md, .high-quolity__texts .texts-md, .quick-response__texts .texts-md, .price__header .sub-title, .price__table-head, .price__table-body, .price__caution, .f-and-q__header .sub-title, .blog__header .sub-title, .blog__card .card-body-inner, .works__header .sub-title, .swiper-slide__subscription .caption, .contact__inner .your-power, .contact__header .sub-title, .contact__form .label, .footer__texts .privacy, .footer__texts .private-commerce {
@@ -1267,7 +1275,7 @@ Stylesheet: 960px以上のモニタで適用
   .font-lr, .mobile-menu__link, .high-speed__texts .texts-lr, .high-quolity__texts .texts-lr, .quick-response__texts .texts-lr, .footer h2 {
     font-size: 24px;
   }
-  .font-lg, .header__inner .logo h1, .mobile-menu__cover .logo h2, .hero__texts-lg, .features__header h2, .price__header h2, .f-and-q__header h2, .blog__header h2, .works__header h2, .contact__header h2 {
+  .font-lg, .header__inner .logo h1, .mobile-menu__cover .logo h2, .hero__texts-lg, .price__header h2, .f-and-q__header h2, .blog__header h2, .works__header h2, .contact__header h2 {
     font-size: 32px;
   }
   /******************************************************************
@@ -1321,8 +1329,8 @@ header
   .features {
     padding: 70px 0 157px;
   }
-  .features__header h3 {
-    margin-top: 65px;
+  .features__header h2 {
+    font-size: 32px;
   }
   .features__header .sub-title {
     margin-top: 19px;

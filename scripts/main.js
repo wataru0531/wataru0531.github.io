@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     //Mainクラス初期化
     const main = new Main();
     
-    スムーススクロール
+    // スムーススクロール
     const smoothScrollTrigger = document.querySelectorAll('a[href^="#"]');
 
     for(let i = 0; i < smoothScrollTrigger.length; i++){

@@ -170,17 +170,25 @@ Stylesheet: 768px以上のタブレットやモニタで適用
         justify-content: space-between;
 
         & .card01{
-            flex-basis: 30%;
+            flex-basis: 31%;
         }
         & .card02{
             margin-top: 0;
-            flex-basis: 30%;
+            flex-basis: 31%;
         }
         & .card03{
             margin-top: 0;
-            flex-basis: 30%;
+            flex-basis: 31%;
         }
     }
+    &__card{
+        & .card-body{
+            height: 135px;
+            padding: 10px;
+        }
+
+    }
+
     
 }
 

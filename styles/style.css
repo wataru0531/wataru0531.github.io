@@ -86,6 +86,10 @@
 Stylesheet: ベーススタイル
 
 ******************************************************************/
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: bold;

@@ -3,8 +3,8 @@
 Stylesheet: ベーススタイル
 
 ******************************************************************/
-html {
-    -webkit-overflow-scrolling: touch;
+html{
+    scroll-behavior: smooth;
 }
 body{
     font-family: 'Noto Sans JP', sans-serif;

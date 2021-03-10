@@ -42,7 +42,7 @@ class Main{
     }
 
     _init(){
-        new Smooth();
+        // new Smooth();
         new MobileMenu();
         new Accordion();
         this.hero = new HeroSlider('.swiper-container');

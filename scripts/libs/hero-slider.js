@@ -13,11 +13,8 @@ class HeroSlider{
         effect: 'slides',
         centeredSlides: true,
         spaceBetween: 56,
-        slidesPerView: 1,
+        slidesPerView: 1.5,
         breakpoints: {
-          500: {
-            slidesPerView: 2,
-          },
           768: {
             slidesPerView: 3,
           },
